@@ -32,7 +32,7 @@ public class Main {
             String[] params  = StringUtils.splitByWholeSeparator(input, null);
             String cmd = params[0];
             if (StringUtils.equals("cd", cmd)) {
-                String path = params[1];
+                String path = StringUtils.splitByWholeSeparator(input,null,2)[1]; //cd 后面的所有输入都默认为路径
 
                 if (!StringUtils.startsWith(path, File.separator) && !StringUtils.startsWith(path, "~")) {
                     path = currentPath.getPath() + File.separator + path;
